@@ -59,7 +59,8 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
             WeatherContract.WeatherEntry.COLUMN_WEATHER_ID,
             WeatherContract.WeatherEntry.COLUMN_MAX_TEMP,
             WeatherContract.WeatherEntry.COLUMN_MIN_TEMP,
-            WeatherContract.WeatherEntry.COLUMN_SHORT_DESC
+            WeatherContract.WeatherEntry.COLUMN_SHORT_DESC,
+            WeatherContract.LocationEntry.COLUMN_CITY_NAME 
     };
 
     // these indices must match the projection
@@ -67,6 +68,7 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
     private static final int INDEX_MAX_TEMP = 1;
     private static final int INDEX_MIN_TEMP = 2;
     private static final int INDEX_SHORT_DESC = 3;
+    private static final int INDEX_CITY_NAME = 4;
 
     public SunshineSyncAdapter(Context context, boolean autoInitialize) {
         super(context, autoInitialize);
@@ -341,6 +343,7 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
                     double high = cursor.getDouble(INDEX_MAX_TEMP);
                     double low = cursor.getDouble(INDEX_MIN_TEMP);
                     String desc = cursor.getString(INDEX_SHORT_DESC);
+                    String city = cursor.getString(INDEX_CITY_NAME);
 
                     int iconId = Utility.getIconResourceForWeatherCondition(weatherId);
                     Resources resources = context.getResources();
@@ -350,7 +353,7 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
 
                     // Define the text of the forecast.
                     String contentText = String.format(context.getString(R.string.format_notification),
-                            desc,
+                            desc,city,
                             Utility.formatTemperature(context, high),
                             Utility.formatTemperature(context, low));
 
