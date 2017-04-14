@@ -3,17 +3,13 @@ package com.ckeeda.android.weather_world.app;
 import android.content.Context;
 import android.database.Cursor;
 import android.support.v4.widget.CursorAdapter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * {@link ForecastAdapter} exposes a list of weather forecasts
- * from a {@link Cursor} to a {@link android.widget.ListView}.
- */
+
 public class ForecastAdapter extends CursorAdapter {
 
     private static final int VIEW_TYPE_COUNT = 2;
@@ -100,7 +96,7 @@ public class ForecastAdapter extends CursorAdapter {
 
 
         viewHolder.location.setText("City:"+cursor.getString(ForecastFragment.COL_CITY_NAME));
-        Log.v("City Name",cursor.getString(ForecastFragment.COL_CITY_NAME));
+
         // Read weather forecast from cursor
         String description = cursor.getString(ForecastFragment.COL_WEATHER_DESC);
         // Find TextView and set weather forecast on it

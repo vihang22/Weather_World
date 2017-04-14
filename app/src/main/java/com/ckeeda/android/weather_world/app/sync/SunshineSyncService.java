@@ -18,7 +18,6 @@ public class SunshineSyncService extends Service {
             }
         }
     }
-
     @Override
     public IBinder onBind(Intent intent) {
         return sSunshineSyncAdapter.getSyncAdapterBinder();

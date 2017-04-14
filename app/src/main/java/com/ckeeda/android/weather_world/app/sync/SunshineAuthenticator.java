@@ -21,7 +21,6 @@ public class SunshineAuthenticator extends AbstractAccountAuthenticator {
         super(context);
     }
 
-    // No properties to edit.
     @Override
     public Bundle editProperties(
             AccountAuthenticatorResponse r, String s) {

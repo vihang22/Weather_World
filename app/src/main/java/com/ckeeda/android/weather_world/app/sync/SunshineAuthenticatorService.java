@@ -17,10 +17,7 @@ public class SunshineAuthenticatorService extends Service {
         mAuthenticator = new SunshineAuthenticator(this);
     }
 
-    /*
-     * When the system binds to this Service to make the RPC call
-     * return the authenticator's IBinder.
-     */
+
     @Override
     public IBinder onBind(Intent intent) {
         return mAuthenticator.getIBinder();
