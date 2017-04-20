@@ -351,7 +351,7 @@ public class SunshineSyncAdapter extends AbstractThreadedSyncAdapter {
 
                     // Define the text of the forecast.
                     String contentText = String.format(context.getString(R.string.format_notification),
-                            desc,city,
+                            desc,
                             Utility.formatTemperature(context, high),
                             Utility.formatTemperature(context, low));
 
